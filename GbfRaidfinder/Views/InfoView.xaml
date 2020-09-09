@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="GbfRaidfinder.Views.InfoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:GbfRaidfinder.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:gbfRaidfinder="clr-namespace:GbfRaidfinder"
+             mc:Ignorable="d" FontSize="18"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Information" FontSize="24" />
+        <Separator Grid.Row="1" />
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="2">
+            <TextBlock VerticalAlignment="Center" ><Run Text="Twitter"/><Run Text=":"/></TextBlock>
+            <Button Content="https://twitter.com/rel_fix" Margin="5,0,5,1"
+                    Click="ButtonBase_OnClick1"
+                    Style="{DynamicResource MaterialDesignFlatButton}" FontFamily="Meiryo UI" Cursor="Hand" FontWeight="Medium" />
+        </StackPanel>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="2">
+            <TextBlock ><Run Text="Discord: "/><Run Text="rel_fix"/><Run Text="#"/><Run Text="7090"/></TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="2">
+            <TextBlock Text=" " VerticalAlignment="Center" />
+            <TextBox IsReadOnly="True" Width="Auto" />
+        </StackPanel>
+        <StackPanel Grid.Row="5" Orientation="Horizontal" Margin="2">
+            <TextBlock Text="UniqueId: " VerticalAlignment="Center" />
+            <TextBox
+                Text="{Binding DataContext.Id, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type gbfRaidfinder:MainWindow}}}"
+                IsReadOnly="True" Width="Auto" />
+        </StackPanel>
+    </Grid>
+</UserControl>
